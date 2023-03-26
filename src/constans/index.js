@@ -1,4 +1,4 @@
-import { Checkroom, DeveloperMode, FaceRetouchingNatural, FaceRetouchingNaturalTwoTone, FitnessCenter, GraphicEq, Home, LiveTv, MusicNote, OndemandVideo, School, SportsEsports, TheaterComedy } from "@mui/icons-material"
+import { Checkroom, DeveloperMode, FaceRetouchingNatural, FitnessCenter, GraphicEq, Home, LiveTv, MusicNote, OndemandVideo, School, SportsEsports, TheaterComedy } from "@mui/icons-material"
 
 export const logo = 'https://upload.wikimedia.org/wikipedia/commons/b/be/Sketch-logo-light.svg'
 export const category = [

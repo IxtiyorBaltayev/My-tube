@@ -3,7 +3,7 @@ import { Container, Typography, Box, Stack } from "@mui/material";
 import { colors } from './../../constans/colors';
 import { Category } from '../';
 const Main = () => {
-  const [selectedCategory, setSelectedCategory] = useState('New')
+  const [selectedCategory] = useState('New')
   return (
     <Stack>
       <Category/>
