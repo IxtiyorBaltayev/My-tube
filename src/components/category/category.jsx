@@ -12,6 +12,7 @@ const Category = ({ selectedCategoryHandler, selectedCategory }) => {
             borderRadius: "0",
             background: item.name === selectedCategory && colors.secondary,
             color: item.name === selectedCategory && "#fff",
+            margin: "0 1px" 
           }}
           onClick={() => selectedCategoryHandler(item.name)}
         >
