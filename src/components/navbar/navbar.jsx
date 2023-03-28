@@ -17,8 +17,8 @@ const Navbar = () => {
         background: colors.primary,
       }}
     >
-      <Link to={'/'}>
-        <img src={logo} alt='logo' height={50} />
+      <Link to={'/'} style={{display:'flex',alignItems: 'center'}}>
+        <img src={logo} alt='logo' height={50} /><span style={{fontSize:'30px', textDecoration:'none', color:'#000', fontWeight:'bold'}}>My Tube</span>
       </Link>
       <Searchbar/>
       <Box />

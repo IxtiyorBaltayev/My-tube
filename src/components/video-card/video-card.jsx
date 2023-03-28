@@ -1,4 +1,10 @@
-import { Avatar, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Avatar,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import { colors } from "./../../constans/colors";
 import moment from "moment";
 import { Stack } from "@mui/system";
@@ -6,11 +12,32 @@ import { CheckCircle } from "@mui/icons-material";
 
 const VideoCard = ({ video }) => {
   return (
-    <Card sx={{ width: "320px", boxShadow: "none", borderRadius: 0 }}>
+    <Card
+      sx={{
+        width: {
+          xl: "22.9vw",
+          lg: "30vw",
+          md: "28.8vw",
+          sm: "43vw",
+          xs: "86vw",
+        },
+        boxShadow: "none",
+        borderRadius: 0,
+      }}
+    >
       <CardMedia
         image={video?.snippet?.thumbnails?.high?.url}
         alt={video?.snippet?.title}
-        sx={{ width: "360px", height: "180px" }}
+        sx={{
+          width: {
+            xl: "22.9vw",
+            lg: "30vw",
+            md: "28.8vw",
+            sm: "43vw",
+            xs: "86vw",
+          },
+          height: "180px",
+        }}
       />
       <CardContent
         sx={{
@@ -31,11 +58,19 @@ const VideoCard = ({ video }) => {
           </Typography>
         </>
         <>
-          <Stack direction={"row"} position={'absolute'} bottom={'10px'} alignItems={'center'} gap={'5px'}>
-            <Avatar src={video?.snippet?.thumbnails?.high?.url}/>
-            <Typography variant="subtitle2" color={'gray'}>
+          <Stack
+            direction={"row"}
+            position={"absolute"}
+            bottom={"10px"}
+            alignItems={"center"}
+            gap={"5px"}
+          >
+            <Avatar src={video?.snippet?.thumbnails?.high?.url} />
+            <Typography variant="subtitle2" color={"gray"}>
               {video?.snippet?.channelTitle}
-              <CheckCircle sx={{fontSize: '12px', color: 'gray', ml: '5px'}}/>
+              <CheckCircle
+                sx={{ fontSize: "12px", color: "gray", ml: "5px" }}
+              />
             </Typography>
           </Stack>
         </>

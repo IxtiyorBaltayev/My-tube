@@ -1,6 +1,6 @@
 import { Checkroom, DeveloperMode, FaceRetouchingNatural, FitnessCenter, GraphicEq, Home, LiveTv, MusicNote, OndemandVideo, School, SportsEsports, TheaterComedy } from "@mui/icons-material"
 
-export const logo = 'https://upload.wikimedia.org/wikipedia/commons/b/be/Sketch-logo-light.svg'
+export const logo = 'https://cdn.dribbble.com/users/4538838/screenshots/18413493/media/6c4aa68657da4f4cc209ed8b204e82d9.png?compress=1&resize=400x300'
 export const category = [
     {name: "New", icon: <Home/>},
     {name: "Movie", icon: <OndemandVideo/>},
