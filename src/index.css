@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+a{
+  text-decoration: none;
+  color:#000;
+}
+
 ::-webkit-scrollbar {
   width: 0;
   height: 1px;
@@ -49,8 +54,16 @@
   color: #fff !important;
 }
 
+.react-player{
+  height: 77vh !important;
+  width: 100% !important;
+}
+
 @media screen and (max-width: 600px) {
   .search-bar {
     width: 200px;
+  }
+  .react-player{
+    height: 45vh !important;
   }
 }

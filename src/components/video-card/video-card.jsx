@@ -9,6 +9,7 @@ import { colors } from "./../../constans/colors";
 import moment from "moment";
 import { Stack } from "@mui/system";
 import { CheckCircle } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const VideoCard = ({ video }) => {
   return (
@@ -25,20 +26,22 @@ const VideoCard = ({ video }) => {
         borderRadius: 0,
       }}
     >
-      <CardMedia
-        image={video?.snippet?.thumbnails?.high?.url}
-        alt={video?.snippet?.title}
-        sx={{
-          width: {
-            xl: "22.9vw",
-            lg: "30vw",
-            md: "28.8vw",
-            sm: "43vw",
-            xs: "86vw",
-          },
-          height: "180px",
-        }}
-      />
+      <Link to={`/video/${video.id.videoId}`}>
+        <CardMedia
+          image={video?.snippet?.thumbnails?.high?.url}
+          alt={video?.snippet?.title}
+          sx={{
+            width: {
+              xl: "22.9vw",
+              lg: "30vw",
+              md: "28.8vw",
+              sm: "43vw",
+              xs: "86vw",
+            },
+            height: "200px",
+          }}
+        />
+      </Link>
       <CardContent
         sx={{
           background: colors.primary,
@@ -46,7 +49,7 @@ const VideoCard = ({ video }) => {
           position: "relative",
         }}
       >
-        <>
+        <Link to={`/video/${video.id.videoId}`}>
           <Typography my={"5px"} sx={{ opacity: ".4" }}>
             {moment(video?.snippet?.publishedAt).fromNow()}
           </Typography>
@@ -56,7 +59,7 @@ const VideoCard = ({ video }) => {
           <Typography variant="subtitle2" opacity={".6"}>
             {video?.snippet?.description.slice(0, 70)}
           </Typography>
-        </>
+        </Link>
         <>
           <Stack
             direction={"row"}
