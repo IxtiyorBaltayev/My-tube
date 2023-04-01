@@ -60,7 +60,7 @@ const VideoCard = ({ video }) => {
             {video?.snippet?.description.slice(0, 70)}
           </Typography>
         </Link>
-        <>
+        <Link to={`/channel/${video?.snippet?.channelId}`}>
           <Stack
             direction={"row"}
             position={"absolute"}
@@ -76,7 +76,7 @@ const VideoCard = ({ video }) => {
               />
             </Typography>
           </Stack>
-        </>
+        </Link>
       </CardContent>
     </Card>
   );

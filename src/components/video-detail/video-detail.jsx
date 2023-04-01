@@ -1,7 +1,7 @@
-import { Avatar, Box, Chip, Link, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Chip, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ApiService } from "./../../service/api.service";
+import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 import {
   CheckCircle,
@@ -12,6 +12,7 @@ import {
 } from "@mui/icons-material";
 import Loader from "../loader/loader";
 import Videos from "./../videos/videos";
+import { ApiService } from './../../service/api.service';
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
@@ -24,6 +25,7 @@ const VideoDetail = () => {
         const data = await ApiService.fechting(
           `videos?part=snippet&statistics&id=${id}`
         );
+        console.log(data)
         setVideoDetail(data.items[0]);
         const relatedData = await ApiService.fetching(
           `search?part=snippet&relatedToVideoId=${id}&type=video`
@@ -62,38 +64,44 @@ const VideoDetail = () => {
             {videoDetail.snippet.description}
           </Typography>
           <Stack direction="row" gap="20px" alignItems="center" py={1} px={2}>
-            <Stack
-              sx={{ opacity: 0.7 }}
-              direction="row"
-              alignItems="center"
-              gap="3px"
-            >
-              <Visibility />
-              {parseInt(videoDetail.statistics.viewCount).toLocaleString()}{" "}
-              views
-            </Stack>
-            <Stack
-              sx={{ opacity: 0.7 }}
-              direction="row"
-              alignItems="center"
-              gap="3px"
-            >
-              <FavoriteOutlined />
-              {parseInt(videoDetail.statistics.likeCount).toLocaleString()}{" "}
-              likes
-            </Stack>
-            <Stack
-              sx={{ opacity: 0.7 }}
-              direction="row"
-              alignItems="center"
-              gap="3px"
-            >
-              <MarkChatRead />
-              {parseInt(
-                videoDetail.statistics.commentCount
-              ).toLocaleString()}{" "}
-              comment
-            </Stack>
+            <Link to={`/channel/${videoDetail?.snippet?.channelId}`}>
+              <Stack
+                sx={{ opacity: 0.7 }}
+                direction="row"
+                alignItems="center"
+                gap="3px"
+              >
+                <Visibility />
+                {parseInt(
+                  videoDetail.statistics.viewCount
+                ).toLocaleString()}{" "}
+                views
+              </Stack>
+              <Stack
+                sx={{ opacity: 0.7 }}
+                direction="row"
+                alignItems="center"
+                gap="3px"
+              >
+                <FavoriteOutlined />
+                {parseInt(
+                  videoDetail.statistics.likeCount
+                ).toLocaleString()}{" "}
+                likes
+              </Stack>
+              <Stack
+                sx={{ opacity: 0.7 }}
+                direction="row"
+                alignItems="center"
+                gap="3px"
+              >
+                <MarkChatRead />
+                {parseInt(
+                  videoDetail.statistics.commentCount
+                ).toLocaleString()}{" "}
+                comment
+              </Stack>
+            </Link>
           </Stack>
           <Stack direction="row" py={1} px={2}>
             <Link to={`/channel/${videoDetail?.snippet?.channelId}`}>
