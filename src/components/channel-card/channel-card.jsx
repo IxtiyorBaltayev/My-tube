@@ -4,7 +4,7 @@ import { CheckCircle } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 const ChnnelCard = ({ video }) => {
-  console.log(video[0])
+  console.log(video)
   return (
     <Box
       sx={{
@@ -28,8 +28,8 @@ const ChnnelCard = ({ video }) => {
           }}
         >
           <CardMedia
-            image={video?.snippet?.thumbnails?.default?.url}
-            alt={video?.snippet?.title}
+            image={video?.items ? video?.items?.[0]?.snippet?.thumbnails?.default?.url :  video.snippet?.thumbnails?.default?.url}
+            alt={video?.items ? video?.items?.[0]?.snippet?.title : video?.snippet?.title}
             sx={{
               borderRadius: "50%",
               height: "180px",
@@ -39,14 +39,14 @@ const ChnnelCard = ({ video }) => {
             }}
           />
           <Typography variant={"h6"}>
-            {video?.snippet?.title}
+            {video?.items ? video?.items?.[0]?.snippet?.title : video?.snippet?.title}
             <CheckCircle sx={{ fontSize: "14px", color: "gray", ml: "5px" }} />
           </Typography>
-          {video?.statistics?.subscriberCount && (
+          {video?.items?.[0]?.statistics?.subscriberCount && (
             <Typography
               sx={{ fontSize: " 15px", fontWeight: "500", color: "gray" }}
             >
-              {parseInt(video?.statistics?.subscriberCount).toLocaleString(
+              {parseInt(video?.items?.[0]?.statistics?.subscriberCount).toLocaleString(
                 "en-US"
               )}{" "}
               Subscribers

@@ -5,7 +5,7 @@ import { ApiService } from './../../service/api.service';
 import { Box } from '@mui/material';
 import { ChannelCard } from '..';
 import { Container } from '@mui/material';
-import Videos from './../videos/videos';
+import {Videos} from '../'
 const Channel = () => {
   const [channelDetail, setChannelDetail] = useState([])
   const [videos, setVideos] = useState([])
@@ -32,7 +32,7 @@ const Channel = () => {
 					height={'200px'}
 					zIndex={10}
 					sx={{
-						backgroundImage: `url(${channelDetail?.brandingSettings?.image?.bannerExternalUrl})`,
+						backgroundImage: `url(${channelDetail?.items?.[0]?.brandingSettings?.image?.bannerExternalUrl})`,
 						backgroundPosition: 'center',
 						backgroundSize: 'cover',
 						objectFit: 'cover',
@@ -42,7 +42,7 @@ const Channel = () => {
 				<ChannelCard video={channelDetail} marginTop={'-100px'} />
 			</Box>
 			<Container maxWidth={'90%'}>
-				<Videos videos={videos} />
+				<Videos videos={videos?.items ? videos?.items : videos} />
 			</Container>
 		</Box>
   );

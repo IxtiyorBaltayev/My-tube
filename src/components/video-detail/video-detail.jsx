@@ -12,7 +12,7 @@ import {
 } from "@mui/icons-material";
 import Loader from "../loader/loader";
 import Videos from "./../videos/videos";
-import { ApiService } from './../../service/api.service';
+import { ApiService } from "./../../service/api.service";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
@@ -25,9 +25,8 @@ const VideoDetail = () => {
         const data = await ApiService.fechting(
           `videos?part=snippet&statistics&id=${id}`
         );
-        console.log(data)
         setVideoDetail(data.items[0]);
-        const relatedData = await ApiService.fetching(
+        const relatedData = await ApiService.fechting(
           `search?part=snippet&relatedToVideoId=${id}&type=video`
         );
         setRelatedVideo(relatedData.items);
